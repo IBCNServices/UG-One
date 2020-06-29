@@ -1,0 +1,5 @@
+# Order of requirements is important.
+# Add additional requirements at the bottom of the list
+requests==2.23
+docker
+docker-compose

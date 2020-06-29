@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "success response",
+    "description": "response when a call is succesfull",
+    "type": "object",
+    "properties": {
+        "message": {
+            "type": "string",
+            "enum": ["Success"]
+        },
+        "status_code": {
+            "type": "integer",
+            "enum": [200]
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "message", "statuscode"
+    ]
+}

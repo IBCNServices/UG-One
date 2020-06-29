@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "images GET response",
+    "description": "Response from image GET",
+    "type": "object",
+    "properties": {
+        "images": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "created": {
+                        "description": "Build time of the image, e.g:'2020-03-30T17:33:51.698544995Z'",
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "image_id": {
+                        "description": "The full length image ID",
+                        "type": "string",
+                        "minLength": 64
+                    },
+                    "name": {
+                        "description": "Image name string without tag, can be an empty string if the image has no name",
+                        "type": "string",
+                        "minLength": 0
+                    },
+                    "size": {
+                        "description": "Image size in bytes",
+                        "type": "integer",
+                        "minimum": 1
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "minLength": 1
+                        }
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "status_code": {
+            "type": "integer",
+            "enum": [
+                200
+            ]
+        }
+    },
+    "additionalProperties": false
+}

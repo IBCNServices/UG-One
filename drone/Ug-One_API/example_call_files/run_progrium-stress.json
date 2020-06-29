@@ -1,0 +1,7 @@
+{
+    "image": "gitlab.ilabt.imec.be:4567/jfmoeyer/mp2020ug-one/progrium-stress",
+    "overwrite_existing": true,
+    "name":"manual_test",
+    "reserved_mem": 1000,
+    "command": "--cpu 1 --io 1 --vm 2 --vm-bytes 128M --timeout 100s"
+}

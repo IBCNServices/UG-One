@@ -1,0 +1,52 @@
+/* Add a light blue background color to the top navigation */
+.topnav {
+    background-color: #0F7EC0;
+    width: 100%;
+    overflow: auto;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    width: 16%; /* width normally 20% but then the hyperlink in the navbar don't line up*/
+    text-align: center; /* If you want the text to be centered */
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: #0F7EC0;
+  }
+  
+
+
+
+
+/* Add a light blue background color to the top navigation */
+.topnavDrone {
+  background-color: #0F7EC0;
+  width: 100%;
+  overflow: auto;
+}
+
+/* Style the links inside the navigation bar */
+.topnavDrone a {
+  float: left;
+  color: #f2f2f2;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  width: 11%; /* width normally 20% but then the hyperlink in the navbar don't line up*/
+  text-align: center; /* If you want the text to be centered */
+}
+
+/* Change the color of links on hover */
+.topnavDrone a:hover {
+  background-color: #ddd;
+  color: #0F7EC0;
+}
+

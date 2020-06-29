@@ -1,0 +1,34 @@
+version: '2.4'
+services:
+  ug-one_api:
+    container_name: Ug-One_API
+    # The name that will be given to the image that will be build
+    image: gitlab.ilabt.imec.be:4567/jfmoeyer/mp2020ug-one/ug-one_api-armv7:latest
+    # Options that tell Docker were it can find the Dockerfile
+    build:
+      context: "../"
+      dockerfile: deployment/Dockerfile
+    # The memory limit that will be given to the Ug-One_API container.
+    # By setting a memory limit, the Ug-One_API can also take into 
+    # account its own memory usage when calculating available memory.
+    mem_limit: 128M
+    # Setting the cpu_shares option to the maximum value makes sure
+    # that the Ug-One_API can claim more CPU time when needen than 
+    # other containers with a lower cpu_shares value
+    cpu_shares: 262144
+    # Port on which the swagger-UI is hosted
+    ports:
+    - "14500:14500/tcp"
+    volumes:
+      # This is needed for the Ug-One API to execute Docker commands
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      # Mounts the configuration file for the Ug-One_API
+      - "../config.yml:/Ug-One_API/config.yml"
+      # Mounts the file containing the Docker credentials for access to 
+      # the docker-repository where Docker will look for missing images
+      - "../docker_credentials.yml:/Ug-One_API/docker_credentials.yml"
+      # # Might be needed to read out connected usb device information,
+      # but this is broken at this time
+      # - "/dev/bus/usb:/dev/bus/usb"
+    # Restarts after crashes or reboot
+    restart: always

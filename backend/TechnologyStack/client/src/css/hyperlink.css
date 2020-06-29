@@ -1,0 +1,42 @@
+.a:link {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .a:visited {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .a:hover {
+    text-decoration: none;
+    color: #0F7EC0;
+  }
+  
+  .a:active {
+    text-decoration: none;
+    color: white;
+
+  }
+
+
+  .a_List:link {
+    text-decoration: none;
+    color:black
+  }
+  
+  .a_List:visited {
+    text-decoration: none;
+    color: black
+  }
+  
+  .a_List:hover {
+    text-decoration: none;
+    color: red;
+  }
+  
+  .a_List:active {
+    text-decoration: none;
+    color:black
+
+  }

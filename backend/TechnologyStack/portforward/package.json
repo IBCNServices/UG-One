@@ -1,0 +1,21 @@
+{
+  "name": "portforward",
+  "version": "1.0.0",
+  "description": "backend for port forwarding the udp mavlink messages from the drone to the client",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server"
+  },
+  "author": "Karl-Erik Réculé",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "js-yaml": "^3.13.1",
+    "mongoose": "^5.9.7",
+    "morgan": "^1.10.0",
+    "swagger-generator-express": "^2.1.1"
+  }
+}

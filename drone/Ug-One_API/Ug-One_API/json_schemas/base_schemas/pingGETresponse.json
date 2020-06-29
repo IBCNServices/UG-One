@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "ping GET response",
+    "description": "Response from the ping get",
+    "type": "object",
+    "properties": {
+        "message": {
+            "description": "The message returned by a ping get",
+            "type": "string",
+            "minLength": 1
+        },
+        "status_code": {
+            "type":"string",
+            "enum":[200]
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "message",
+        "status_code"
+    ]
+}

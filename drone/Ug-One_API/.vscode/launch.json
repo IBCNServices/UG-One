@@ -1,0 +1,44 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        // {  //this is unmaintained
+        //     "name": "Docker: Python - Flask",
+        //     "type": "docker",
+        //     "request": "launch",
+        //     "preLaunchTask": "docker-run: debug flask",
+        //     "python": {
+        //         "pathMappings": [
+        //             {
+        //                 "localRoot": "${workspaceFolder}/Ug-One_API",
+        //                 "remoteRoot": "/Ug-One_API"
+        //             }
+        //         ],
+        //         "args": [
+        //             "run",
+        //             "--no-debugger",
+        //             "--no-reload"
+        //         ],
+        //         "projectType": "flask"
+        //     }
+        // },
+        {
+            "name": "Python: Flask",
+            "type": "python",
+            "request": "launch",
+            "module": "flask",
+            // "program": "./Ug-One_API/app.py",
+            "env": {
+                "FLASK_APP": "Ug-One_API/app.py",
+                "FLASK_ENV": "development",
+                "FLASK_DEBUG": "0"
+            },
+            "args": [
+                "run",
+                "--no-debugger",
+                "--no-reload"
+            ],
+            "jinja": true
+        },
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "image DELETE",
+    "description": "Additional options will be passed to client.image.remove() https://docker-py.readthedocs.io/en/stable/images.html",
+    "type": "object",
+    "additionalProperties": true
+}

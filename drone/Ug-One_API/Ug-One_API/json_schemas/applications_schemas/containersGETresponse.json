@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "containers GET response",
+    "description": "Partial model for the response from containers GET. Perform a call to see all the fields",
+    "type": "object",
+    "properties": {
+        "containers": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "created": {
+                        "description": "The unix timestamp stating when a container has been created",
+                        "type": "integer",
+                        "minimum": 0
+                    },
+                    "ports": {
+                        "description": "Array of objects, each object contains multiple tuples providing information about a port binding",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": true
+                        },
+                        "minItems": 0
+                    }
+                },
+                "additionalProperties": true
+            }
+        },
+        "status_code": {
+            "type": "integer",
+            "enum": [
+                200
+            ]
+        }
+    },
+    "additionalProperties": false
+}

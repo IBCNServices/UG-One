@@ -1,0 +1,42 @@
+{
+    "version":"2.0.0",
+    "tasks": [
+        {
+            "type": "docker-build",
+            "label": "docker-build",
+            "platform": "python",
+            "dockerBuild": {
+                "tag": "ugoneapi:latest",
+                "dockerfile": "${workspaceFolder}/deployment/Dockerfile",
+                "context": "${workspaceFolder}"
+            }
+        },
+        {
+            "type": "docker-run",
+            "label": "docker-run: debug flask",
+            "dependsOn": [
+                "docker-build"
+            ],
+            "dockerRun": {
+                "env": {
+                    "FLASK_APP": "Ug-One_API/app.py",
+                },
+                "volumes": [
+                    {
+                        "localPath": "/var/run/docker.sock",
+                        "containerPath": "/var/run/docker.sock",
+                        "permissions": "rw"
+                    }
+                ]
+            },
+            "python": {
+                // "args": [
+                //     "run",
+                //     "--no-debugger",
+                //     "--no-reload"
+                // ],
+                "file": "/Ug-One_API/app.py"
+            }
+        }
+    ]
+}

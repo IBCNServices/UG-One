@@ -1,0 +1,28 @@
+system:
+    mavlink_router_image_name: 'gitlab.ilabt.imec.be:4567/jfmoeyer/mp2020ug-one/mavlink-router:beta' # REQUIRED
+    # The amount of memory on the device reserved for host processes in MB, setting this value too low could
+    # result in serious system crashes. Excessively large values lead to less memory being available for containers.
+    reserved_host_memory: 1024 # REQUIRED
+
+mavlink:
+    # The serial connection used by the Autopilot Mavlink communication.
+    # This is mounted to /dev/serial_flight_controller in the MAVLink Router container.
+    serial_device: '/dev/serial0' # REQUIRED
+    # Baudrate of the connection used by the autopilot Mavlink communication. On the Pixhawk this needs to 
+    # be set manualy. One way of doing this, is by connecting the Pixhawk to Qgroundcontrol with USB.
+    baudrate: 921600 # REQUIRED
+    # Additional endpoints that can be used for things such as connecting the drone directly 
+    # to QGroundcontrol on a PC, although this can be done through the Ug-One_backend as well.
+    # When using the Ug-One_backend, the drone will negotiate it's port with the backend and it does not need
+    # to be provided here.
+    custom_endpoints: # OPTIONAL
+        #- ["192.168.1.18", 14550]
+    # Disables the mavlink-router and connection to the backend, only usefull in development.
+    disable_mavlink: False # OPTIONAL, default=False
+
+ug-one_backend:
+    enable_backend_connection: True # REQUIRED Can be used to disable connection to the Ug-One_backend and use the drone without it.
+    IPv4_address: '10.2.0.184' # REQUIRED if enable_backend_connection is True
+    mavlink_setup_port: 5000 # REQUIRED if enable_backend_connection is True
+    # drone_uuid is a unique identifier used by the backend to identify a drone, can be requested through the backend web interface.
+    drone_uuid: '1d7f0792-6d2c-42af-8034-78436b56da0e' # REQUIRED if enable_backend_connection is True

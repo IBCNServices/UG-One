@@ -1,0 +1,84 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "cpu stats GET response",
+    "description": "Response from cpu stats GET",
+    "type": "object",
+    "properties": {
+        "stats": {
+            "type": "object",
+            "properties":{
+                "cpu_count":{
+                    "type":"integer",
+                    "minimum": 1,
+                    "description": "Amount of CPU cores"
+                },
+                "cpu_freq": {
+                    "description": "CPU frequency in Mhz",
+                    "type":"object",
+                    "properties": {
+                        "current":{
+                            "type":"integer",
+                            "minimum": 0
+                        },
+                        "max": {
+                            "type": "integer",
+                            "minimum": 0
+                        },
+                        "min": {
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    }
+                },
+                "cpu_load_avg_percent":{
+                    "description": "average cpu_load over the last 1, 5 and 15 minutes as a percentage",
+                    "type":"object",
+                    "properties": {
+                        "1_min":{
+                            "type":"number",
+                            "minimum": 0
+                        },
+                        "15_min": {
+                            "type": "number",
+                            "minimum": 0
+                        },
+                        "5_min": {
+                            "type": "number",
+                            "minimum": 0
+                        }
+                    }
+                },
+                "cpu_percent": {
+                    "description":"Current CPU usage",
+                    "type":"integer",
+                    "minimum": 0
+                },
+                "cpu_times":{
+                    "description": "dictionary with CPU used by category",
+                    "type":"object",
+                    "additionalProperties": true
+                },
+                "cpu_times_percentage": {
+                    "description": "dictionary with percentage CPU used by category",
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": false
+        },
+        "status_code": {
+            "type": "integer",
+            "enum": [
+                200
+            ]
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "cpu_count",
+        "cpu_freq",
+        "cpu_percent",
+        "cpu_times",
+        "cpu_times_percent"
+    ]
+}

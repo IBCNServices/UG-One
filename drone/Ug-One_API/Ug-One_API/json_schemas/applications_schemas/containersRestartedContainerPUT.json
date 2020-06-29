@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "containers Restarted PUT",
+    "description": "parameters used to restart a container. Additional parameters will be passed to client.container.restart(**kwargs) https://docker-py.readthedocs.io/en/stable/containers.html",
+    "type": "object",
+    "properties": {
+        "timeout": {
+            "description": "Timeout in seconds to wait for the container to stop before sending a SIGKILL. If used, stop_only must be true",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 60,
+            "default": 10
+        }
+    },
+    "additionalProperties": true
+}

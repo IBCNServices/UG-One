@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "containersRunningStats GET response",
+    "description": "Response from containers/Running/Stats GET",
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "The containers' name",
+                        "type": "string",
+                        "minLength":1
+                    },
+                    "memory_current_usage": {
+                        "description": "Current memory used by this container in MB",
+                        "type": "integer",
+                        "minimum": 0
+                    },
+                    "memory_limit": {
+                        "description": "Maximum amount of memory this container can use in MB",
+                        "type": "integer",
+                        "minimum": 1
+                    },
+                    "memory_max_usage": {
+                        "description": "Maximum amount of memory used by this container since startup in MB",
+                        "type": "number",
+                        "minimum": 0
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "status_code": {
+            "type": "integer",
+            "enum": [
+                200
+            ]
+        }
+    },
+    "additionalProperties": false
+}

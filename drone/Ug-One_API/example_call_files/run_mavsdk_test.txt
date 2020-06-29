@@ -1,0 +1,12 @@
+{
+    "image": "gitlab.ilabt.imec.be:4567/jfmoeyer/mp2020ug-one/simple-mavsdk-python-armv7-test:latest",
+    "overwrite_existing": true,
+    "auto_remove": false,
+    "name": "local_mavsdk_test",
+    "ports": {
+        "14540/udp": "14550"
+    },
+    "tty": true
+}
+
+// docker attach local_mavsdk_test can be used to try it out

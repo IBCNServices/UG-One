@@ -1,0 +1,26 @@
+# resources, e.g. through the memory reservation option.
+# This docker-compose file is only relevant for testing, normally the Ug-One API starts up the MAVLink-Router
+# automatically
+
+version: '2.4'
+services:
+  mavrouter:
+    container_name: mavlink-router
+    image: mavrouter:latest
+    build:
+      context: "./"
+      dockerfile: Dockerfile
+    mem_limit: 100M
+    cpu_shares: 262144
+    ports:
+    - "14550:14550"
+    networks:
+      - ug-one-drone
+    devices:
+      - "/dev/serial0:/dev/serial0"
+    restart: always
+
+networks:
+  ug-one-drone:
+    driver: bridge
+    name: ug-one-drone

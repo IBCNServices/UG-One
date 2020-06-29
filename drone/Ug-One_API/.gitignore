@@ -1,0 +1,10 @@
+# logs
+*.log
+
+# Cache
+__pycache__
+
+# We don't want credentials online,
+# should be called docker_credentials.yml, but adding some variations for security.
+docker_credentials*
+dockercredentials*

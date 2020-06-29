@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "disk stats GET response",
+    "description": "Return disk usage statistics about the partition which contains the path '/' including total, used and free space expressed in MB, plus the percentage usage.",
+    "type": "object",
+    "properties": {
+        "disk_stats": {
+            "type":"object",
+            "properties":{
+                "free": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "percent_used": {
+                    "description": "Percentage of disk space used",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "total": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "used": {
+                    "type":"integer",
+                    "minimum": 0
+                }
+            },
+            "required": ["free", "percent", "total", "used"]
+        },
+        "status_code": {
+            "type": "integer",
+            "enum": [ 200 ]
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "disk_stats",
+        "status_code"
+    ]
+}

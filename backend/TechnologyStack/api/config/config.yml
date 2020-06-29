@@ -1,0 +1,14 @@
+NODE_ENV: development
+PORT: 5000
+MONGO_URI: mongodb://database_MongoDB:27017/dronemasterproef
+IPVW: http://10.2.0.184
+IPLOCAL: http://192.168.0.142
+STAGINGVW: true
+
+IPV6Drone: http://[2a02:1811:c411:c100:bd44:d321:1d36:bc42]
+IPV4Drone: http://192.168.0.174
+
+GITLABAPI_URI: https://gitlab.ilabt.imec.be/api/v4
+
+MONGO_USER: krcul
+MONGO_PASS: SecretPWD8520

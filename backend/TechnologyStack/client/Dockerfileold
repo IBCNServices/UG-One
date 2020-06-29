@@ -1,0 +1,19 @@
+FROM node:10.16-alpine
+
+WORKDIR /node
+COPY package.json package-lock.json ./
+
+# install dependencies
+RUN npm install --silent
+RUN npm install react-scripts@3.4.1 -g --silent
+
+
+# Copy app source code
+WORKDIR /node/app
+COPY . .
+
+# Make port 3000 available to the world outside this container
+EXPOSE 3000
+
+# Run the app when the container launches
+CMD ["npm", "start"]

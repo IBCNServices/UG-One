@@ -1,0 +1,6 @@
+NODE_ENV: development
+PORT: 7500
+
+IPVW: http://10.2.0.184
+IPLOCAL: http://192.168.0.142
+STAGINGVW: true

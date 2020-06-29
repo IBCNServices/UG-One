@@ -1,0 +1,89 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "containers POST",
+    "description": "body to pass in order to run a container, additional options that will be passed to client.container.run() https://docker-py.readthedocs.io/en/stable/containers.html, memory swap, detached mode and priviledged mode are disabled",
+    "type": "object",
+    "properties": {
+        "image": {
+            "description": "The image to run, can include the tag, e.g. 'imagename:tag'",
+            "type": "string",
+            "minLength": 1
+        },
+        "reserved_mem": {
+            "description": "The amount of memory reserved for this image in MB, minimum of 10 to compensate for possible hidden memory usage by docker outside of container",
+            "type": "integer",
+            "minimum": 10,
+            "default": 128
+        },
+        "cpu_shares": {
+            "description": "relative weight of CPU-time claim containerized application will get. critical containers should use a large value. CPU resources can be used by lower priority containers when not required by higher priority containers.",
+            "type": "integer",
+            "default": 1024,
+            "minimum": 2,
+            "maximum": 262144
+        },
+        "overwrite_existing": {
+            "description": "Using this requires you to also add the 'name' argument to the body! If a container with the chosen name already exists, enabling this flag stops and deletes that container before reusing the name",
+            "type": "boolean",
+            "default": false
+        },
+        "name": {
+            "description": "Name for the container that will be created",
+            "type": "string",
+            "minLength": 1
+        },
+        "auto_remove": {
+            "description": "Remove the container when it stops running.",
+            "type": "boolean",
+            "default": true
+        },
+        "detach": {
+            "description": "Containers can not be started in detached mode",
+            "type": "boolean",
+            "enum": [
+                false
+            ]
+        },
+        "privileged": {
+            "description": "Containers can not be started in privileged mode",
+            "type": "boolean",
+            "enum": [
+                false
+            ]
+        }
+    },
+    "additionalProperties": true,
+    "required": [
+        "image"
+    ],
+    "not": {
+        "anyOf": [
+            {
+                "required": [
+                    "memswap_limit"
+                ]
+            },
+            {
+                "required": [
+                    "detach"
+                ]
+            }
+        ]
+    },
+    "anyOf": [
+        {
+            "properties": {
+                "overwrite_existing": {
+                    "enum": [
+                        false
+                    ]
+                }
+            }
+        },
+        {
+            "required": [
+                "name"
+            ]
+        }
+    ]
+}

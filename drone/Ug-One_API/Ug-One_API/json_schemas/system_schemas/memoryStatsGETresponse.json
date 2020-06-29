@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "memory Stats GET response",
+    "description": "Response from memory Stats GET",
+    "type": "object",
+    "properties": {
+        "mem_available": {
+            "description": "The available memory for applications in MB",
+            "type": "integer",
+            "minimum": 0
+        },
+        "mem_total": {
+            "description": "The total memory on the system in MB",
+            "type": "integer",
+            "minimum": 0
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "mem_total",
+        "mem_snapshot_available"
+    ]
+}

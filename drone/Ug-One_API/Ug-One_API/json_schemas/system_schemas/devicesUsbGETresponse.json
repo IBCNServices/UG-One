@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "devices usb GET response",
+    "description": "Response from device usb GET",
+    "type": "object",
+    "properties": {
+        "devices": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "description": "Each USB device gets a description like this",
+                "properties": {
+                    "device": {
+                        "description": "device location e.g. '/dev/bus/usb/001/003'",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "device id e.g. '26ac:0032'",
+                        "type": "string"
+                    },
+                    "tag": {
+                        "description": "Device descriptor, currently does not work while running inside Docker. Example descriptor value: 'Logitech, Inc. HD Pro Webcam C920",
+                        "type": "string",
+                        "minLength":0
+                    }
+                },
+                "required": [
+                    "device",
+                    "id",
+                    "tag"
+                ]
+            }
+        },
+        "status_code": {
+            "type": "integer",
+            "enum": [ 200 ]
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "devices",
+        "status_code"
+    ]
+}

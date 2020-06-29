@@ -1,0 +1,7 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "containers DELETE",
+    "description": "parameters used to remove a container. Additional parameters will be passed to container.remove(**kwargs) https://docker-py.readthedocs.io/en/stable/containers.html",
+    "type": "object",
+    "additionalProperties": true
+}

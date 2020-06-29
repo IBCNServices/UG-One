@@ -1,0 +1,16 @@
+{
+    "image": "gitlab.ilabt.imec.be:4567/jfmoeyer/mp2020ug-one/docker-motion-armv7:latest",
+    "reserved_mem": 256,
+    "overwrite_existing": true,
+    "name": "motion-video-stream",
+    "ports": {
+        "8080":"8080/udp",
+        "8081":"8081/tcp"
+    },
+    "devices": [
+        "/dev/video0:/dev/video0"
+    ],
+    "volumes": {
+        "/motion-files":{"bind": "/motion-files", "mode": "rw"}
+    }
+}

@@ -1,0 +1,5 @@
+TechnologyStack/api/node_modules/
+TechnologyStack/client/node_modules/
+TechnologyStack/mongoDB/mongo-volume/
+TechnologyStack/portforward/node_modules/
+.vscode/
